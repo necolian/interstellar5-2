@@ -4,7 +4,6 @@ import { createBareServer } from "@tomphttp/bare-server-node"
 import cors from "cors"
 import express from "express"
 import basicAuth from "express-basic-auth"
-import puppeteer from 'puppeteer'
 import config from "./config.js"
 const __dirname = process.cwd()
 const server = http.createServer()
@@ -39,22 +38,15 @@ app.get("/e/*", (req, res, next) => {
     "https://raw.githubusercontent.com/ypxa/y/main",
     "https://raw.githubusercontent.com/ypxa/w/master",
   ]
-  var url = req.protocol + '://' + req.get( 'host' ) + req.originalUrl;
-  fetchData(req, res, next, baseUrls,url)
+  fetchData(req, res, next, baseUrls)
 })
-const fetchData = async (req, res, next, baseUrls,hosturl) => {
+const fetchData = async (req, res, next, baseUrls) => {
   try {
-    let url = new URL(hosturl);
-    var urlmain = url.protocol + url.host;
-    const headers = {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-      'Referer': urlmain
-    };
     const reqTarget = baseUrls.map((baseUrl) => `${baseUrl}/${req.params[0]}`)
     let data
     let asset
     for (const target of reqTarget) {
-      asset = await fetch(target, { headers })
+      asset = await fetch(target)
       if (asset.ok) {
         data = await asset.arrayBuffer()
         break
