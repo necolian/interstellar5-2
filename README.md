@@ -4,6 +4,8 @@
     <p>Interstellar is a web proxy with a Clean and Sleek UI and easy to use menus. Our goal is to provide the best user experience to everyone.</p>
 </div>
 
+interstellar v5.2 動作する安定版
+
 ![inpreview](https://github.com/InterstellarNetwork/Interstellar/assets/89202835/2669efed-5186-4932-83c4-725acae60bd2)
 
 > [!IMPORTANT]
