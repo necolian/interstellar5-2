@@ -6,6 +6,24 @@ try {
   inFrame = true
 }
 
+var messagedata;
+fetch('/message')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('network error');
+    }
+    return response.json();
+  })
+  .then(data => {
+    messagedata = data;
+  })
+  .catch(error => {
+    console.error('error:', error);
+});
+if (messagedata) {
+  alert(messagedata);
+}
+  
 if (!inFrame && !navigator.userAgent.includes("Firefox")) {
   const popup = open("about:blank", "_blank")
   if (!popup || popup.closed) {
