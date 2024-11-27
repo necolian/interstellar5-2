@@ -62,16 +62,17 @@ const fetchData = async (req, res, next, baseUrls) => {
     next(error)
   }
 }
+
+app.get("/message",(req,res) => {
+  res.status(200).send({"message":process.env.message});
+})
+
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, "static", "404.html"))
 })
 app.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).sendFile(path.join(__dirname, "static", "404.html"))
-})
-
-app.get("/message",(req,res) => {
-  res.status(200).send({"message":process.env.message});
 })
 
 server.on("request", (req, res) => {
