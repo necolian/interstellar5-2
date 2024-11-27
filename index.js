@@ -64,7 +64,7 @@ const fetchData = async (req, res, next, baseUrls) => {
 }
 
 app.get("/message",(req,res) => {
-  res.status(200).send({"message":process.env.message});
+  res.status(200).send(process.env.message);
 })
 
 app.use((req, res, next) => {
