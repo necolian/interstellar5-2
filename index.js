@@ -69,6 +69,11 @@ app.use((err, req, res, next) => {
   console.error(err.stack)
   res.status(500).sendFile(path.join(__dirname, "static", "404.html"))
 })
+
+app.get("/message",(req,res) => {
+  res.status(200).send({"message":process.env.message});
+})
+
 server.on("request", (req, res) => {
   if (bareServer.shouldRoute(req)) {
     bareServer.routeRequest(req, res)
