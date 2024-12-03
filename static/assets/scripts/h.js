@@ -6,6 +6,7 @@ try {
   inFrame = true
 }
 
+alert("テストだよん");
 var messagedata;
 fetch('/message')
   .then(response => {
@@ -21,7 +22,7 @@ fetch('/message')
     console.error('error:', error);
 });
 if (messagedata) {
-  alert(messagedata);
+  alert(messagedata["message"]);
 }
   
 if (!inFrame && !navigator.userAgent.includes("Firefox")) {
