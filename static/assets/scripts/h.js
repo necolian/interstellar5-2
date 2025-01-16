@@ -6,7 +6,6 @@ try {
   inFrame = true
 }
 
-alert("テストだよん");
 var messagedata;
 fetch('/message')
   .then(response => {
