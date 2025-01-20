@@ -1,5 +1,3 @@
-const notAllowedURL = ["youtube.com","youtu.be"]
-
 window.addEventListener("load", () => {
   navigator.serviceWorker.register("../sw.js?v=5-5-2024", {
     scope: "/a/",
@@ -11,21 +9,12 @@ const input = document.getElementById("is")
 
 if (form && input) {
   form.addEventListener("submit", async (event) => {
-    try{
-      if (notAllowedURL.some(phrase => input.value.includes(phrase));){
-          alert("このURLはサイト管理者によって許可されていません");
-          throw new Error;
-      }
-    
-      event.preventDefault()
+    event.preventDefault()
       if (window.top.location.pathname === "/ta") {
         processUrl(input.value, "")
       } else {
         processUrl(input.value, "/ta")
       }
-    }catch (e){
-      
-    }
   })
 }
 function processUrl(value, path) {
