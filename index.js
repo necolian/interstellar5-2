@@ -29,7 +29,7 @@ const routes = [
 ]
 routes.forEach((route) => {
   app.get(route.path, (req, res) => {
-    if (route.path.includes("-ymuvu`e-")){
+    if (route.path.includes("ymuvu")){
       res.send("Youtubeは禁止です　もうちょっと他のことをしろ　ゆきつべ作ってるからそれまで待て");
     }
     res.sendFile(path.join(__dirname, "static", route.file))
