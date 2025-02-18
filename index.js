@@ -29,9 +29,6 @@ const routes = [
 ]
 routes.forEach((route) => {
   app.get(route.path, (req, res) => {
-    if (route.path.includes("ymuvu")){
-      res.send("Youtubeは禁止です　もうちょっと他のことをしろ　ゆきつべ作ってるからそれまで待て");
-    }
     res.sendFile(path.join(__dirname, "static", route.file))
   })
 })
@@ -79,6 +76,13 @@ app.use((err, req, res, next) => {
 })
 
 server.on("request", (req, res) => {
+
+  if (req.url.includes("ymuvu")) {
+    res.writeHead(403, { "Content-Type": "text/plain" });
+    res.end("Youtubeは禁止です　もうちょっと他のことをしろ　ゆきつべ作ってるからそれまで待て");
+    return;
+  }
+
   if (bareServer.shouldRoute(req)) {
     bareServer.routeRequest(req, res)
   } else {
