@@ -3,7 +3,7 @@ let config;
 
 const challenge = process.env.CHALLENGE || false
 
-config["challenge"] = chalenge;
+config["challenge"] = challenge;
 
 const user = process.env.USER;
 
