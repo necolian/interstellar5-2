@@ -1,5 +1,8 @@
 
-let config = {};
+let config = {
+  "challenge":false,
+  "users":{}
+};
 
 const challenge = process.env.CHALLENGE || false
 
