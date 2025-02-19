@@ -1,5 +1,5 @@
 
-let config;
+let config = {};
 
 const challenge = process.env.CHALLENGE || false
 
@@ -13,7 +13,5 @@ if (user){
     config["users"][user] = password;
   }
 }
-
-
 
 export default config
