@@ -1,20 +1,8 @@
-
-let config = {
-  "challenge":false,
-  "users":{}
-};
-
-const challenge = process.env.CHALLENGE || false
-
-config["challenge"] = challenge;
-
-const user = process.env.USER;
-
-const password = process.env.PASSWORD;
-if (user){
-  if (password){
-    config["users"][user] = password;
-  }
+const config = {
+challenge: false, // Set to true if you want to enable password protection.
+users: {
+// You can add multiple users by doing username: 'password'.
+interstellar: "password",
+},
 }
-
 export default config
