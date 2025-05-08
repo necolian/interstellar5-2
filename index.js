@@ -77,7 +77,6 @@ app.use((err, req, res, next) => {
 
 server.on("request", (req, res) => {
 
-  if () {
 if (process.env.YT === true && req.url.includes("ymuvu")) {
   res.writeHead(403, { "Content-Type": "text/plain" });
   res.end("Youtubeは禁止です　もうちょっと他のことをしろ　ゆきつべ作ってるからそれまで待て");
